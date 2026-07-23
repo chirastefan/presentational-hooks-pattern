@@ -45,23 +45,12 @@ export function KanbanBoardContainer() {
   };
 
   return (
-    <div className="kanban-container-root">
-      {/* Toast Notification area managed by the Container (Orchestrator) */}
-      <div className="toast-area">
-        {toasts.map((toast) => (
-          <div key={toast.id} className={`toast toast-${toast.type}`} role="alert">
-            {toast.message}
-          </div>
-        ))}
-      </div>
-
-      {/* Spreading/feeding data to the presentational view */}
-      <KanbanBoardView
-        tasks={tasks}
-        onAddTask={handleAddTask}
-        onMoveTask={handleMoveTask}
-        onDeleteTask={handleDeleteTask}
-      />
-    </div>
+    <KanbanBoardView
+      tasks={tasks}
+      toasts={toasts}
+      onAddTask={handleAddTask}
+      onMoveTask={handleMoveTask}
+      onDeleteTask={handleDeleteTask}
+    />
   );
 }
